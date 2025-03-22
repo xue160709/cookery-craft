@@ -9,7 +9,22 @@ import IngredientSelector from '../components/IngredientSelector';
 import { findRecipesByIngredients, recipes } from '../data/recipes';
 import { ingredients } from '../data/ingredients';
 
-interface RecipeWithMatch extends ReturnType<typeof findRecipesByIngredients>[0] {}
+// Define the type directly instead of using ReturnType and indexing
+interface RecipeWithMatch {
+  id: string;
+  name: string;
+  image: string;
+  ingredients: {
+    id: string;
+    amount: string;
+  }[];
+  steps: string[];
+  difficulty: 'easy' | 'medium' | 'hard';
+  time: number;
+  tips?: string[];
+  matchCount: number;
+  matchPercentage: number;
+}
 
 const Recipes = () => {
   const location = useLocation();
