@@ -11,6 +11,10 @@ interface IngredientSelectorProps {
   initialIngredients?: string[];
 }
 
+
+
+
+
 const IngredientSelector: React.FC<IngredientSelectorProps> = ({ initialIngredients = [] }) => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>(initialIngredients);
   const navigate = useNavigate();
